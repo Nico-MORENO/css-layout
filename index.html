@@ -4,7 +4,129 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
+        <style>
+            *,
+            ::before,
+            :after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /*
+             *   Container - DIV     
+             */
+            .container {
+                display: grid;
+                grid-template-columns: 280px 1fr;
+                grid-template-rows: auto 1fr;
+                height: 100vh;
+                width: 100%;
+            }
+
+            /*
+             * HEADER
+             */
+            header {
+                grid-column: span 2;
+                padding: 10px;
+                text-align: center;
+                font-size: clamp(18px, 4vw, 30px);
+                background-color: #178fbe;
+                color: #ffffff;
+            }
+
+            /*
+             * SIDEBAR
+             */
+            nav {
+                background-color: #eeeeee;
+                color: #170c9f;
+            }
+            nav ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+            }
+            nav h3 {
+                color: #178fbe;
+                font-size: clamp(14px, 4vw, 25px);
+            }
+            nav ul li,
+            nav h3 {
+                display: flex;
+                height: 50px;
+                justify-content: center;
+                align-items: center;
+            }
+            nav li:hover {
+                background-color: #178fbe;
+                cursor: pointer;
+            }
+            nav li:hover > a {
+                color: #eeeeee;
+            }
+            nav ul a {
+                font-size: clamp(12px, 3vw, 16px);
+                color: #170c9f;
+                text-decoration: none;
+            }
+
+            /*
+             * MAIN
+             */
+            main {
+                overflow: auto;
+                padding: 20px;
+            }
+
+            /*
+             * FOOTER
+             */
+            footer {
+                grid-column: span 2;
+                padding: 10px;
+                text-align: center;
+                font-size: clamp(9px, 3vw, 18px);
+                background-color: #178fbe;
+                color: #ffffff;
+            }
+
+            /*
+             * Responsive
+             */
+            @media screen and (max-width: 1000px) {
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                }
+                .container main {
+                    height: 100vh;
+                }
+                nav {
+                    order: 1;
+                    width: 100%;
+                }
+                nav ul {
+                    flex-direction: row;
+                    min-height: auto;
+                    justify-content: space-between;
+                }
+                nav li {
+                    width: 20rem;
+                }
+                nav h3 {
+                    display: none;
+                }
+                footer {
+                    display: none;
+                }
+            }
+        </style>
         <title>SideBar</title>
     </head>
     <body>
@@ -25,30 +147,30 @@
             <main>
                 <h3>Content</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minima nihil voluptate, assumenda recusandae quos ipsum
-                    laudantium incidunt ipsa labore in quaerat? Quia eveniet
-                    nulla, ab vel consequatur voluptatem autem nesciunt. Ab sit
-                    dolores nam porro odio reprehenderit sequi sed vel? Nulla
-                    ducimus, accusantium eos labore dolores sunt non nihil,
-                    soluta blanditiis nostrum totam ad nesciunt libero
-                    recusandae explicabo rem iure ipsam iste modi impedit
-                    suscipit. Id quisquam eveniet dolor, minus consectetur illo!
-                    Voluptatibus animi eos aut, labore ducimus ut rerum porro
-                    ab? Repudiandae, exercitationem maiores! Laudantium
-                    consequuntur adipisci facilis blanditiis non eligendi ipsa
-                    nihil eius libero minima nostrum repellat, harum cumque quo
-                    magni assumenda facere dolores error quaerat. A animi quidem
-                    quis voluptas, autem dolorem delectus ducimus exercitationem
-                    eum est atque, perferendis similique ratione quibusdam qui
-                    culpa harum laboriosam cupiditate odio non asperiores
-                    molestias fugiat. Minima provident ut fugit at repellendus
-                    mollitia sit. Officia cum perferendis iure aperiam veritatis
-                    ut tempore ad assumenda possimus nulla rem, corrupti
-                    nesciunt et nemo quo delectus? Iusto distinctio ipsam saepe
-                    excepturi itaque ex quia optio, vel et? Nulla dignissimos
-                    vero, distinctio fugit enim illo consectetur iure maiores
-                    magni aliquid doloremque quas praesentium eius veniam minus,
+                    blanditiis nostrum totam ad nesciunt libero recusandae
+                    explicabo rem iure ipsam iste modi impedit suscipit. Id
+                    incidunt ipsa labore in quaerat? Quia eveniet nulla, ab vel
+                    consequatur voluptatem autem nesciunt. Ab sit dolores nam
+                    porro odio reprehenderit sequi sed vel? Nulla ducimus,
+                    accusantium eos labore dolores sunt non nihil, soluta
+                    blanditiis nostrum totam ad nesciunt libero recusandae
+                    explicabo rem iure ipsam iste modi impedit suscipit. Id
+                    quisquam eveniet dolor, minus consectetur illo! Voluptatibus
+                    animi eos aut, labore ducimus ut rerum porro ab?
+                    Repudiandae, exercitationem maiores! Laudantium consequuntur
+                    adipisci facilis blanditiis non eligendi ipsa nihil eius
+                    libero minima nostrum repellat, harum cumque quo magni
+                    assumenda facere dolores error quaerat. A animi quidem quis
+                    voluptas, autem dolorem delectus ducimus exercitationem eum
+                    est atque, perferendis similique ratione quibusdam qui culpa
+                    harum laboriosam cupiditate odio non asperiores molestias
+                    fugiat. Minima provident ut fugit at repellendus mollitia
+                    sit. Officia cum perferendis iure aperiam veritatis ut
+                    tempore ad assumenda possimus nulla rem, corrupti nesciunt
+                    et nemo quo delectus? Iusto distinctio ipsam saepe excepturi
+                    itaque ex quia optio, vel et? Nulla dignissimos vero,
+                    distinctio fugit enim illo consectetur iure maiores magni
+                    aliquid doloremque quas praesentium eius veniam minus,
                     corrupti sint incidunt nostrum numquam impedit veritatis
                     ipsa? Libero atque nulla blanditiis, consectetur reiciendis
                     facere labore nisi numquam culpa saepe doloremque
